@@ -39,7 +39,7 @@ Issues Found & Fixed:
 
 <h4>Step 1.4: Exploratory Data Analysis (EDA)</h4>
 
-📊 Key Statistics Generated:
+Key Statistics Generated:
 
 Diabetes Prevalence: 34.90% (268 positive cases)
 Feature Correlations with Outcome:
@@ -58,10 +58,10 @@ Distribution Analysis:
 
 <<h4>Step 1.5: Data Export & Validation</h4>
 <b>Final Dataset:</b> diabetes_clean.csv (9.2KB)<br>
-✅ 768 rows × 9 columns<br>
-✅ 0% missing values<br>
-✅ Medical outliers handled<br>
-✅ Ready for Step 2 ML Training<br>
+- 768 rows × 9 columns<br>
+- 0% missing values<br>
+- Medical outliers handled<br>
+- Ready for Step 2 ML Training<br>
 
 
 <h3>STEP 2: ML Model Training & Evaluation (COMPLETE)</h3>
@@ -72,11 +72,11 @@ Distribution Analysis:
 <br> 
 Algorithm: Random Forest Classifier (Ensemble ML)
 <br> 
-✅ Why RF? Handles medical data well + 77%+ accuracy target
+- Why RF? Handles medical data well + 77%+ accuracy target
 <br> 
-✅ Hyperparameters: n_estimators=100, max_depth=10
+- Hyperparameters: n_estimators=100, max_depth=10
 <br> 
-✅ Train/Test Split: 80/20 (614 train + 154 test)
+- Train/Test Split: 80/20 (614 train + 154 test)
 
 <br> 
 <h4>Step 2.2 Data Preparation for ML</h4>
@@ -105,26 +105,26 @@ Target (y): Outcome (0=No Diabetes, 1=Yes)
   | **AVG** | **78.2%** | **75.2%** | **73.2%** | **74.2%** |
 
 <br> 
-<h4>Step 2.4 Final Model Performance ⭐</h4>
+<h4>Step 2.4 Final Model Performance </h4>
 
 <br> 
-🎯 TEST SET RESULTS (154 samples):
+- TEST SET RESULTS (154 samples):
 <br> 
-✅ Accuracy: **78.6%** 
+- Accuracy: **78.6%** 
 <br> 
-✅ Precision: 76.1% (low false positives)
+- Precision: 76.1% (low false positives)
 <br> 
-✅ Recall: 74.3% (catches most cases)
+- Recall: 74.3% (catches most cases)
 <br> 
-✅ F1-Score: 75.2% (balanced)
+- F1-Score: 75.2% (balanced)
 
 
 
 <br> 
-<h4>Step 2.5 Feature Importance Analysis 🩺</h4>
+<h4>Step 2.5 Feature Importance Analysis </h4>
 <br> 
 
-🏥 Top Diabetes Predictors (Medical Validated):
+Top Diabetes Predictors (Medical Validated):
 1. **Glucose**: 28.4% 
 2. **BMI**: 21.7% 
 3. **Age**: 15.2%
@@ -140,10 +140,10 @@ App Features & Architecture
 
 <h4>Step 3.1 User Interface Design</h4><br>
 
-🎯 Real-Time Diabetes Risk Calculator<br>
-📱 Responsive UI (Mobile + Desktop)<br>
-📊 Interactive Charts + Predictions<br>
-⚡ Instant Results (<1 second)<br>
+- Real-Time Diabetes Risk Calculator<br>
+- Responsive UI (Mobile + Desktop)<br>
+- Interactive Charts + Predictions<br>
+- Instant Results (<1 second)<br>
 
 <h4>Step 3.2 Core Functionalities</h4><br>
 1. **Patient Input Form**:<br>
@@ -168,10 +168,10 @@ Input Screen:<br>
 [Patient Age: 35 | Glucose: 140 | BMI: 32 → sliders]
 
 Prediction Results:<br>
-🎯 **MEDIUM RISK** (74% confidence)<br>
-🔥 Top Factor: High Glucose (140 mg/dL)<br>
-💡 Action: Consult endocrinologist<br>
-📈 Feature Impact Chart<br>
+- **MEDIUM RISK** (74% confidence)<br>
+- Top Factor: High Glucose (140 mg/dL)<br>
+- Action: Consult endocrinologist<br>
+- Feature Impact Chart<br>
 
 <br>
 <h4>Step 3.4 Technical Implementation</h4><br>
@@ -186,7 +186,7 @@ from sklearn.preprocessing import StandardScaler
 model = joblib.load('diabetes_model.pkl')
 scaler = StandardScaler()
 
-st.title("🩺 PS05 Silent Disease Detector")
+st.title(" PS05 Silent Disease Detector")
 st.header("Type-2 Diabetes Risk Calculator")
 
 # Patient inputs (8 features)
@@ -195,13 +195,13 @@ glucose = st.slider("Glucose (mg/dL)", 70, 200, 120)
 # ... 6 more fields
 
 # Predict button
-if st.button("🔮 Predict Risk"):
+if st.button(" Predict Risk"):
     patient_data = scaler.transform([[age, glucose, ...]])
     prediction = model.predict(patient_data)
     probability = model.predict_proba(patient_data)
     
     # Display results with colors/charts
     if prediction == 1:
-        st.error(f"🚨 HIGH RISK ({probability*100:.1f}% chance)")
+        st.error(f"HIGH RISK ({probability*100:.1f}% chance)")
     else:
-        st.success(f"✅ LOW RISK ({100-probability*100:.1f}% safe)")
+        st.success(f"LOW RISK ({100-probability*100:.1f}% safe)")
